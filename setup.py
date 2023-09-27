@@ -30,7 +30,12 @@ setup(
                 '/usr/include',
                 '/usr/local/include',
                 '/usr/local/cuda/include',
-            ]
+            ],
+            library_dirs=[
+                "/usr/lib",
+                "/usr/local/lib",
+                "/usr/local/cuda/lib64",
+            ],
         )
     ],
     cmdclass={'build_ext': BuildExtension}
