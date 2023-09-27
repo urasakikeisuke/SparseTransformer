@@ -11,6 +11,9 @@ os.environ['OPT'] = " ".join(
 
 setup(
     name='sptr',
+    version='0.1.0',
+    author='dvlab-research',
+    install_requires=['torch'],
     ext_modules=[
         CUDAExtension('sptr_cuda', [
             'src/sptr/pointops_api.cpp',
@@ -21,8 +24,13 @@ setup(
             'src/sptr/rpe/relative_pos_encoding_cuda.cpp',
             'src/sptr/rpe/relative_pos_encoding_cuda_kernel.cu',
             ],
-        extra_compile_args={'cxx': ['-g'], 'nvcc': ['-O2']}
-        )
+        extra_compile_args={'cxx': ['-O2'], 'nvcc': ['-O2']}
+        ),
+        include_dirs=[
+            '/usr/include',
+            '/usr/local/include',
+            '/usr/local/cuda/include',
+        ]
     ],
     cmdclass={'build_ext': BuildExtension}
 )
