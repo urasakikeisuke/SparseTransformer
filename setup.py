@@ -15,9 +15,7 @@ setup(
     author='dvlab-research',
     install_requires=['torch'],
     ext_modules=[
-        CUDAExtension(
-            name='sptr_cuda', 
-            sources=[
+        CUDAExtension('sptr_cuda', [
                 'src/sptr/pointops_api.cpp',
                 'src/sptr/attention/attention_cuda.cpp',
                 'src/sptr/attention/attention_cuda_kernel.cu',
