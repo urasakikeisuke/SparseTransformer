@@ -26,6 +26,5 @@ setup(
             extra_compile_args={"cxx": ["-g"], "nvcc": ["-O2"]},
         )
     ],
-    cmdclass={"build_ext": BuildExtension},
-    install_requires=["timm"]
+    cmdclass={"build_ext": BuildExtension}
 )
