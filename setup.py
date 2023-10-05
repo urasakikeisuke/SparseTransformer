@@ -27,4 +27,5 @@ setup(
         )
     ],
     cmdclass={"build_ext": BuildExtension},
+    install_requires=["timm"]
 )
