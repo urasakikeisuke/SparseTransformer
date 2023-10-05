@@ -1,16 +1,8 @@
 #python3 setup.py install
-import os
 from setuptools import setup
-from distutils.sysconfig import get_config_vars
-
-os.environ["CUDA_HOME"] = "/usr/local/cuda"
-os.environ["MAX_JOBS"] = f"{os.cpu_count()}"
-LD_LIBRARY_PATH = os.environ["LD_LIBRARY_PATH"]
-if LD_LIBRARY_PATH.startswith(":"):
-    LD_LIBRARY_PATH = LD_LIBRARY_PATH[1:]
-os.environ["LD_LIBRARY_PATH"] = ":/usr/lib:/usr/local/lib:/usr/local/cuda/lib64:" + LD_LIBRARY_PATH
-
 from torch.utils.cpp_extension import BuildExtension, CUDAExtension
+import os
+from distutils.sysconfig import get_config_vars
 
 (opt,) = get_config_vars('OPT')
 os.environ['OPT'] = " ".join(
