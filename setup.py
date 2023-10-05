@@ -16,21 +16,21 @@ setup(
     install_requires=['torch'],
     ext_modules=[
         CUDAExtension('sptr_cuda', [
-                'src/sptr/pointops_api.cpp',
-                'src/sptr/attention/attention_cuda.cpp',
-                'src/sptr/attention/attention_cuda_kernel.cu',
-                'src/sptr/precompute/precompute.cpp',
-                'src/sptr/precompute/precompute_cuda_kernel.cu',
-                'src/sptr/rpe/relative_pos_encoding_cuda.cpp',
-                'src/sptr/rpe/relative_pos_encoding_cuda_kernel.cu',
+            'src/sptr/pointops_api.cpp',
+            'src/sptr/attention/attention_cuda.cpp',
+            'src/sptr/attention/attention_cuda_kernel.cu',
+            'src/sptr/precompute/precompute.cpp',
+            'src/sptr/precompute/precompute_cuda_kernel.cu',
+            'src/sptr/rpe/relative_pos_encoding_cuda.cpp',
+            'src/sptr/rpe/relative_pos_encoding_cuda_kernel.cu',
             ],
-            extra_compile_args={'cxx': ['-O2'], 'nvcc': ['-O2']},
-            include_dirs=[
-                '/usr/include',
-                '/usr/local/include',
-                '/usr/local/cuda/include',
-            ]
-        )
+        extra_compile_args={'cxx': ['-O2'], 'nvcc': ['-O2']}
+        ),
+        include_dirs=[
+            '/usr/include',
+            '/usr/local/include',
+            '/usr/local/cuda/include',
+        ]
     ],
     cmdclass={'build_ext': BuildExtension}
 )
