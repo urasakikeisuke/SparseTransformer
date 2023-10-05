@@ -13,6 +13,7 @@ setup(
     name='sptr',
     version='0.1.0',
     author='dvlab-research',
+    install_requires=['torch'],
     ext_modules=[
         CUDAExtension(
             name='sptr_cuda', 
